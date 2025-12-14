@@ -20,6 +20,8 @@ dependencies = [
     "pycocotools>=2.0.0",
     "transformers>=4.30.0",
     "accelerate>=0.20.0",
+    "requests>=2.28.0",
+    "tqdm>=4.65.0",
 ]
 
 [build-system]
