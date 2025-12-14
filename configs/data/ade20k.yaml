@@ -1,0 +1,6 @@
+# @package _global_
+data:
+  name: "ade20k"
+  root: "data/processed/ade20k"
+  batch_size: 8
+  num_workers: 4

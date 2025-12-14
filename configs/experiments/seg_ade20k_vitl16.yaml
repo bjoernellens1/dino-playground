@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - /backbone: dinov3_vitl16
+  - /data: ade20k
+  - /tasks: segmentation_linear
+  - _self_
+
+experiment_name: "seg_ade20k_vitl16"
+seed: 42
+train:
+  max_epochs: 50
+  lr: 1e-4

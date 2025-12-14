@@ -1,0 +1,7 @@
+# @package _global_
+task:
+  name: "segmentation_linear"
+  num_classes: 150
+  head:
+    type: "linear"
+    in_channels: 1024
