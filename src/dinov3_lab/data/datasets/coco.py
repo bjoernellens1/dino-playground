@@ -47,7 +47,17 @@ class COCODataset(Dataset):
         
         path = coco.loadImgs(img_id)[0]['file_name']
         img_path = os.path.join(self.image_dir, path)
-        image = Image.open(img_path).convert('RGB')
+        
+        # Robust loading: skip if file missing
+        if not os.path.exists(img_path):
+            print(f"Warning: Image not found at {img_path}. Skipping...")
+            return self.__getitem__((idx + 1) % len(self))
+            
+        try:
+            image = Image.open(img_path).convert('RGB')
+        except (FileNotFoundError, OSError) as e:
+            print(f"Warning: Failed to load image at {img_path}: {e}. Skipping...")
+            return self.__getitem__((idx + 1) % len(self))
         
         # Convert coco_target to a format suitable for the model
         # For this playground, we might return the raw list of dicts 
