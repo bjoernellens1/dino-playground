@@ -176,7 +176,7 @@ def build_dinov3_hf(
     """
     from transformers import AutoModel  # local import to keep core light
 
-    model = AutoModel.from_pretrained(model_id, torch_dtype=torch_dtype)
+    model = AutoModel.from_pretrained(model_id, dtype=torch_dtype)
 
     # DINOv3 ViT config fields (patch_size / num_register_tokens / hidden_size) are documented by HF.
     patch_size = int(getattr(model.config, "patch_size"))
